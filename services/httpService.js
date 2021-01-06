@@ -2,7 +2,7 @@ import Axios from 'axios';
 
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/api/'
-    : '//localhost:3030/api/'
+    : 'https://todos-next-js.herokuapp.com/api/'
 
 var axios = Axios.create({
     withCredentials: true
