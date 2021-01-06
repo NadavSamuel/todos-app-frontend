@@ -1,0 +1,32 @@
+{
+  "todos": [
+    {
+      "title": "Things to to in this app",
+      "txt": "Build backend, Make UI better, check pinned bug, check network problem, check todo submit bug",
+      "type": "list",
+      "pinned": true,
+      "_id": "jfKuo",
+      "created": 1608202802043,
+      "lastUpdated": 1608203668050
+    },
+    {
+      "title": "Trane <3",
+      "txt": "https://upload.wikimedia.org/wikipedia/commons/6/6e/John_Coltrane_in_1963.jpg",
+      "type": "img",
+      "pinned": true,
+      "_id": "on7Dx",
+      "created": 1608202886584,
+      "lastUpdated": 1608202953167,
+      "bgc": "cyan"
+    },
+    {
+      "title": "avi",
+      "txt": "avi ben",
+      "type": "txt",
+      "_id": "YvNVc",
+      "created": 1608203165918,
+      "pinned": false,
+      "lastUpdated": 1608203472312
+    }
+  ]
+}
