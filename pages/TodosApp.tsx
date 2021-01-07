@@ -25,8 +25,9 @@ const TodosApp = observer(() => {
     try {
       await todosStore.loadTodos()
     }
-    catch {
-      router.push('/')
+    catch(err) {
+      console.log('catch',err)
+      // router.push('/')
     }
   }
 

@@ -65,9 +65,5 @@ export class TodosStore {
         runInAction(() => {
             this.todosAmount = length
         })
-
-
     }
-
-
 }

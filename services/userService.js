@@ -8,8 +8,8 @@ export default {
     getById,
     remove,
     update,
-    // getLoggedInUser
 }
+
 
 function getUsers() {
     return httpService.get('user')

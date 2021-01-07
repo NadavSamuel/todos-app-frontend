@@ -1,5 +1,9 @@
 import Axios from 'axios';
-
+const corsAnywhere = `https://cors-anywhere.herokuapp.com/`
+const serverAddress = `https://todos-next-js.herokuapp.com/api/`
+// const BASE_URL = process.env.NODE_ENV === 'production'
+//     ? 'https://todos-next-js.herokuapp.com/api/'
+//     : serverAddress
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? 'https://todos-next-js.herokuapp.com/api/'
     : '//localhost:3030/api/'
