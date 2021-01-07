@@ -23,9 +23,7 @@ import { useForm, useMediaQuery } from '../services/customHooks'
         if (useMediaQuery('(min-width: 600px)')) return 5;
         else return 10;
     }
-
     const router = useRouter()
-
     async function onLoginSignup() {
         try {
 
