@@ -9,7 +9,12 @@ const BASE_URL = process.env.NODE_ENV === 'production'
     : '//localhost:3030/api/'
 
 var axios = Axios.create({
-    withCredentials: true
+    withCredentials: true,
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true
+
 });
 
 
