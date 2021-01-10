@@ -1,4 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
+import { NextPage, NextPageContext } from 'next';
+import {parseCookies} from '../services/parseCookies'
+import Cookie from 'js-cookie'
 import { observer } from 'mobx-react-lite'
 import { Head } from '../cmps/Head'
 import { TodosList } from '../cmps/TodosList'
@@ -8,8 +11,11 @@ import { useRouter } from 'next/router'
 import { NoTodosMsg } from '../cmps/NoTodosMsg'
 import { ErrorModal } from '../cmps/ErrorModal'
 import { Dimmer } from 'semantic-ui-react'
-
-const TodosApp = observer(() => {
+import {User} from '../interfaces'
+interface Props {
+  user?: User;
+}
+const TodosApp:NextPage<Props>= observer(({user}) => {
   const rootStoreContext = useContext(RootStoreContext);
   const { todosStore, userStore, systemStore } = rootStoreContext;
   const { todos, sortedTodos } = todosStore;
@@ -18,7 +24,14 @@ const TodosApp = observer(() => {
   const isError = systemStore.isError.existingError;
 
   useEffect(() => {
+    if(!user){
+    console.log('sessionStorage, ',sessionStorage)
+    Cookie.set('user',sessionStorage.user)
+    }
     onAppLoad()
+    return () =>{
+      Cookie.remove('user');
+    }
   }, [])
   async function onAppLoad() {
     if (!loggedInUser) userStore.getLoggedInUser()
@@ -48,4 +61,12 @@ const TodosApp = observer(() => {
     </React.Fragment>
   )
 })
+TodosApp.getInitialProps = (req) =>{
+  const cookies = parseCookies(req)
+  console.log('cookies,',cookies)
+
+  return {
+    user:cookies.user
+  }
+}
 export default TodosApp
