@@ -12,10 +12,11 @@ import { NoTodosMsg } from '../cmps/NoTodosMsg'
 import { ErrorModal } from '../cmps/ErrorModal'
 import { Dimmer } from 'semantic-ui-react'
 import {User} from '../interfaces'
-interface Props {
-  user?: User;
-}
-const TodosApp:NextPage<Props>= observer(({user}) => {
+// interface Props {
+//   user?: User;
+// }
+const TodosApp= observer(() => {
+// const TodosApp:NextPage<Props>= observer(({user}) => {
   const rootStoreContext = useContext(RootStoreContext);
   const { todosStore, userStore, systemStore } = rootStoreContext;
   const { todos, sortedTodos } = todosStore;
@@ -24,14 +25,14 @@ const TodosApp:NextPage<Props>= observer(({user}) => {
   const isError = systemStore.isError.existingError;
 
   useEffect(() => {
-    if(!user){
-    console.log('sessionStorage, ',sessionStorage)
-    Cookie.set('user',sessionStorage.user)
-    }
+    // if(!user){
+    // console.log('sessionStorage, ',sessionStorage)
+    // Cookie.set('user',sessionStorage.user)
+    // }
     onAppLoad()
-    return () =>{
-      Cookie.remove('user');
-    }
+    // return () =>{
+    //   Cookie.remove('user');
+    // }
   }, [])
   async function onAppLoad() {
     if (!loggedInUser) userStore.getLoggedInUser()
@@ -61,12 +62,12 @@ const TodosApp:NextPage<Props>= observer(({user}) => {
     </React.Fragment>
   )
 })
-TodosApp.getInitialProps = (req) =>{
-  const cookies = parseCookies(req)
-  console.log('cookies,',cookies)
+// TodosApp.getInitialProps = (req) =>{
+//   const cookies = parseCookies(req)
+//   console.log('cookies,',cookies)
 
-  return {
-    user:cookies.user
-  }
-}
+//   return {
+//     user:cookies.user
+//   }
+// }
 export default TodosApp
